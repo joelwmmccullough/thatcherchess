@@ -47,4 +47,4 @@ def render_board(shape: Shape) -> str:
 if __name__ == "__main__":
     from thatcherchess.board import diamond
     print(render_board(diamond())) 
- 
+
