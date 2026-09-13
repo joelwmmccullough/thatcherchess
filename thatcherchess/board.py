@@ -62,6 +62,7 @@ def diamond_cells() -> set[Cell]:
         if abs(col - 5) + abs(row - 5) <= 5
     }
 
+
 def diamond() -> Shape:
     #returns a diamond shape with the starting pieces defined above
 
@@ -72,7 +73,6 @@ def diamond() -> Shape:
         player_start=[StartPiece(kind, col, row) for kind, col, row in PLAYER_START],
         thatcher_start=[StartPiece(kind, col, row) for kind, col, row in THATCHER_START]
     )
-
 
 
 def is_connected(cells: set[Cell]) -> bool: 
@@ -93,3 +93,9 @@ def is_connected(cells: set[Cell]) -> bool:
                 seen.add(neighbor)
                 frontier.append(neighbor)
     return len(seen) == len(cells)
+
+
+def forward_step(side: str) -> int:
+    if side == "thatcher": return 1
+    elif side == "player": return -1
+    return 0

@@ -1,4 +1,4 @@
-from thatcherchess.board import diamond, is_connected
+from thatcherchess.board import diamond, is_connected, forward_step
 
 
 def test_the_diamond_has_61_cells():
@@ -19,3 +19,7 @@ def test_every_starting_piece_is_in_bounds():
     shape = diamond()
     for piece in shape.player_start + shape.thatcher_start:
         assert shape.in_bounds((piece.col, piece.row))
+
+def test_forward_is_up_the_screen_for_you_and_down_for_thatcher():
+    assert forward_step("player") == -1
+    assert forward_step("thatcher") == 1
